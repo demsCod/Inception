@@ -11,7 +11,12 @@ RUN mkdir -p /etc/nginx/ssl && openssl req -x509 -nodes -out\
 
 RUN mkdir -p /var/run/nginx
 
-RUN chmod 755 /var/www/html && chown -R www-data:www-data /var/www/html
+# Create the WordPress directory first
+RUN mkdir -p /var/www/html/wordpress
+
+# Then set permissions
+RUN chmod 755 /var/www/html/wordpress && \
+    chown -R www-data:www-data /var/www/html/wordpress
 
 COPY conf/nginx.conf /etc/nginx/nginx.conf
 
