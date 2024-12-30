@@ -9,10 +9,10 @@ services :
       - inception
     ports :
       - "443:443"
-      - "8080:80"
+      - "9000:80"
     env_file : .env
     volumes:
-      - ./wordpress_data:/var/www/html/wordpress
+      - wordpress_data:/var/www/html/wordpress
   wordpress :
     depends_on :
       - mariadb
@@ -23,7 +23,7 @@ services :
       - inception
     env_file : .env
     volumes:
-      - ./wordpress_data:/var/www/html/wordpress
+      - wordpress_data:/var/www/html/wordpress
   mariadb:
     container_name: mariadb
     build: requirements/mariadb
