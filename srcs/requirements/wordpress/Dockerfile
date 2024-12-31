@@ -3,7 +3,7 @@ FROM debian:bullseye
 
 # Mettre à jour et installer les paquets nécessaires
 RUN apt-get update && apt-get upgrade -y \
-&& apt-get install -y curl php php7.4-fpm php-mysql mariadb-client wget vim zsh git netcat mycli sendmail \
+&& apt-get install -y curl php php7.4-fpm php-mysql mariadb-client wget vim zsh git netcat mycli \
 && curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar \
 && chmod +x wp-cli.phar \
 && mv wp-cli.phar /usr/local/bin/wp \

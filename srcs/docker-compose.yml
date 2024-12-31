@@ -9,7 +9,6 @@ services :
       - inception
     ports :
       - "443:443"
-      - "9000:80"
     env_file : .env
     volumes:
       - wordpress_data:/var/www/html/wordpress
@@ -42,5 +41,13 @@ networks:
 volumes:
   wordpress_data:
     driver: local
+    driver_opts:
+      type: none
+      device: "/home/dems/data/wordpress_data"
+      o: bind
   mariadb_data:
     driver: local
+    driver_opts:
+      type: none
+      device: "/home/dems/data/mariadb_data"
+      o: bind
